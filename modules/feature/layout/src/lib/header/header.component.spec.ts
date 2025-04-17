@@ -28,6 +28,10 @@ describe('HeaderComponent', () => {
   it('should have a name', () => {
     const header: HTMLHeadingElement =
       fixture.nativeElement.querySelector('header');
-    expect(header.textContent).toBe('Ecommerce');
+    expect(header.textContent).toBe(mockTitle);
+
+    component.title = 'Teste';
+    fixture.detectChanges(); //detecta as alterações no componente
+    expect(header.textContent).toBe('Teste');
   });
 });

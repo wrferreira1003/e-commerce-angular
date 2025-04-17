@@ -17,7 +17,7 @@
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
-  "nxCloudId": "67fe548349aafd7ecfadd82f",
+  "nxCloudId": "67ff9fd8d3d1251165aaccce",
   "targetDefaults": {
     "@angular-devkit/build-angular:application": {
       "cache": true,
@@ -73,6 +73,13 @@
       "linter": "eslint",
       "style": "scss",
       "unitTestRunner": "jest"
+    },
+    "@nx/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nx/angular:component": {
+      "style": "css"
     }
   },
   "defaultProject": "ecommerce"

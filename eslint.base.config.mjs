@@ -38,7 +38,7 @@ export default [
     ],
     // Override or add rules here
     rules: {
-      'no-console': 'off',
+      'no-console': 'error',
     },
   },
 ];

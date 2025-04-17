@@ -93,3 +93,12 @@ A camada de App dentro da arquitetura tem o poder de executar tarefas como **ser
 Exemplo:
 
 ![Exemplo](/Users/wrferreira/Desktop/e-commerce-angular/documentos/camada_app.webp)
+
+## Usar o Husky - npx husky-init
+
+Cria uma pasta dentro do diretorio raiz, chamado .husky e um arquivo chamado pre-commit, podemos colocar dentro desse arquivo comando para ser executados antes do commit.
+
+Rodar os testes e lint, antes de commitar, boa pratica evitando enviar para o repositorios testes quebrados ou problemas de lint.
+
+npx lint-staged - colocar dentro do arquivo e instalar essa biblioteca.
+npm install -D lint-staged

@@ -11,6 +11,7 @@ export class HeaderComponent {
   MostrarTexto = true;
   // Função para o botão
   submit(event: Event) {
+    // eslint-disable-next-line no-console
     console.log('submit', event);
     this.MostrarTexto = !this.MostrarTexto;
   }

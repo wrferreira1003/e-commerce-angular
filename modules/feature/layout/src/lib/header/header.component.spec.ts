@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeaderComponent } from './header.component';
 
+const mockTitle = 'Ecommerce';
+
 describe('HeaderComponent', () => {
   let component: HeaderComponent; //component é uma classe que é responsável por criar o componente e o ambiente de teste com ferramentas para testar o componente
   let fixture: ComponentFixture<HeaderComponent>; //fixture é uma classe que é responsável por criar o componente e o ambiente de teste com ferramentas para testar o componente
@@ -13,6 +15,7 @@ describe('HeaderComponent', () => {
 
     fixture = TestBed.createComponent(HeaderComponent); //cria o componente e o ambiente de teste com ferramentas para testar o componente
     component = fixture.componentInstance; //component é uma instancia do componente que está sendo testado
+    component.title = mockTitle;
     fixture.detectChanges(); //detecta as alterações no componente
   });
 

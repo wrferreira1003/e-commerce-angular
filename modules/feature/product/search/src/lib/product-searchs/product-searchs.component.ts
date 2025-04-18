@@ -5,8 +5,16 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { MockProducts } from '@ecommerce/product-data-acess';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { ProductSearchService } from '@ecommerce/product-data-acess';
+import { Product } from 'modules/data-acess/product/src/lib/models/product.model';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  map,
+  Observable,
+  switchMap,
+} from 'rxjs';
 
 @Component({
   selector: 'lib-product-searchs',
@@ -22,30 +30,19 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
   styleUrl: './product-searchs.component.scss',
 })
 export class ProductSearchsComponent implements OnInit {
-  control = new FormControl('');
-  products = MockProducts;
-  filteredProducts = [...this.products];
+  control = new FormControl('', { nonNullable: true });
+  products$!: Observable<Product[]>;
 
-  // Inicializa o componente
-  ngOnInit() {
-    this.control.valueChanges
-      .pipe(debounceTime(300), distinctUntilChanged())
-      .subscribe((value) => {
-        this.filterProducts(value || '');
-      });
-  }
+  constructor(private ProductSearchService: ProductSearchService) {}
 
-  // Filtra os produtos
-  filterProducts(value: string) {
-    const filterValue = value.toLowerCase();
-    this.filteredProducts = this.products.filter((product) =>
-      product.name.toLowerCase().includes(filterValue)
+  // ngOnInit - serve para executar ações quando o componente é inicializado
+  ngOnInit(): void {
+    this.products$ = this.control.valueChanges.pipe(
+      debounceTime(500), // espera 500ms para executar a função
+      distinctUntilChanged(), // executa a função apenas se o valor for diferente do anterior
+      filter((value) => value.length > 1),
+      map((value) => value.toLowerCase()),
+      switchMap((value) => this.ProductSearchService.searchByName(value))
     );
-  }
-
-  // Limpa o campo de busca
-  clearSearch() {
-    this.control.setValue('');
-    this.filteredProducts = [...this.products];
   }
 }

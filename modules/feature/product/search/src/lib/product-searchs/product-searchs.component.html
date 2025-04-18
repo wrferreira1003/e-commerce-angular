@@ -1,41 +1,18 @@
-<div class="search-container">
-  <form class="search-form">
-    <mat-form-field class="search-field" appearance="outline">
-      <mat-label>Buscar produto</mat-label>
-      <mat-icon matPrefix class="search-icon">search</mat-icon>
-      <input
-        type="text"
-        placeholder="Digite o nome do produto"
-        aria-label="Campo de busca de produtos"
-        matInput
-        [formControl]="control"
-        [matAutocomplete]="auto"
-      />
-
-      <button
-        *ngIf="control.value"
-        matSuffix
-        mat-icon-button
-        aria-label="Limpar busca"
-        class="clear-button"
-        (click)="clearSearch()"
-      >
-        <mat-icon>close</mat-icon>
-      </button>
-
-      <mat-autocomplete #auto="matAutocomplete" class="search-autocomplete">
-        @for (product of filteredProducts; track product.id) {
-        <mat-option [value]="product.name" class="product-option">
-          <span>{{ product.name }}</span>
-          <small class="product-price">R$ {{ product.price }}</small>
-        </mat-option>
-        } @if (filteredProducts.length === 0 && control.value) {
-        <mat-option disabled class="no-results">
-          <mat-icon>search_off</mat-icon>
-          <span>Nenhum produto encontrado</span>
-        </mat-option>
-        }
-      </mat-autocomplete>
-    </mat-form-field>
-  </form>
-</div>
+<form class="search-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Number</mat-label>
+    <input
+      type="text"
+      placeholder="Pick one"
+      aria-label="Number"
+      matInput
+      [formControl]="control"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      @for (product of products$ | async; track product.id) {
+      <mat-option [value]="product.name">{{ product.name }}</mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

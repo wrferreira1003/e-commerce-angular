@@ -18,6 +18,12 @@
       "@ecommerce/layout": ["modules/feature/layout/src/index.ts"],
       "@ecommerce/product-data-acess": [
         "modules/data-acess/product/src/index.ts"
+      ],
+      "@ecommerce/product-search": [
+        "modules/feature/product/search/src/index.ts"
+      ],
+      "@ecommerce/product-searchs": [
+        "modules/feature/product/search/src/index.ts"
       ]
     }
   },

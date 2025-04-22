@@ -11,7 +11,9 @@ export class ProductSearchService {
 
   constructor(private http: HttpClient) {}
 
+  // funcao para buscar produtos pelo nome
   searchByName(name: string): Observable<Product[]> {
+    //Retornar um observable de produtos
     return this.http.get<Product[]>(`${this.API_URL}/products`, {
       params: {
         name,

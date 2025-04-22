@@ -30,10 +30,12 @@ import {
   styleUrl: './product-searchs.component.scss',
 })
 export class ProductSearchsComponent implements OnInit {
+  // FormControl - serve para criar um controle de formulário
   control = new FormControl('', { nonNullable: true });
+  // Observable - serve para observar o valor do input
   products$!: Observable<Product[]>;
 
-  // Serve para injetar o que vai usar.
+  // Dependecy Injection - serve para injetar o que vai usar.
   constructor(private ProductSearchService: ProductSearchService) {}
 
   // ngOnInit - serve para executar ações quando o componente é inicializado

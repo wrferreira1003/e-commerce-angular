@@ -33,10 +33,12 @@ export class ProductSearchsComponent implements OnInit {
   control = new FormControl('', { nonNullable: true });
   products$!: Observable<Product[]>;
 
+  // Serve para injetar o que vai usar.
   constructor(private ProductSearchService: ProductSearchService) {}
 
   // ngOnInit - serve para executar ações quando o componente é inicializado
   ngOnInit(): void {
+    // this.control.valueChanges - serve para observar o valor do input
     this.products$ = this.control.valueChanges.pipe(
       debounceTime(500), // espera 500ms para executar a função
       distinctUntilChanged(), // executa a função apenas se o valor for diferente do anterior

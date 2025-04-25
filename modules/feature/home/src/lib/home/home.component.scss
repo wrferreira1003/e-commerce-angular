@@ -1,0 +1,24 @@
+.home {
+  padding: 20px;
+
+  &__product-card-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  &__product-card {
+    max-width: 400px;
+  }
+
+  &__product-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__product-card-image {
+    height: 300px;
+    margin-bottom: 10px;
+  }
+}

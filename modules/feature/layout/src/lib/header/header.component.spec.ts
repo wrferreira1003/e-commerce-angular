@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeaderComponent } from './header.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 const mockTitle = 'Ecommerce';
 
@@ -10,7 +11,7 @@ describe('HeaderComponent', () => {
   //BeforeEach é uma função que é executada antes de cada teste para configurar o ambiente de teste, montando o componente e o ambiente de teste com ferramentas para testar o componente, aqui dentro entra tudo que o componente precisa para ser testado
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent],
+      imports: [HeaderComponent, RouterTestingModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent); //cria o componente e o ambiente de teste com ferramentas para testar o componente
@@ -33,5 +34,11 @@ describe('HeaderComponent', () => {
     component.title = 'Teste';
     fixture.detectChanges(); //detecta as alterações no componente
     expect(header.textContent).toBe('Teste');
+  });
+
+  //Testar se o logo redireciona para a rota /
+  it('should redirect to "/" when title is clicked', () => {
+    const anchor: HTMLAnchorElement = fixture.nativeElement.querySelector('a');
+    expect(anchor.getAttribute('href')).toBe('/');
   });
 });

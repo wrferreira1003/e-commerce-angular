@@ -1,13 +1,16 @@
 .header {
   display: flex; //serve para alinhar os elementos horizontalmente
   align-items: center; //serve para alinhar os elementos verticalmente
-  //width: 100%; //serve para definir a largura da header
+  justify-content: space-between;
   height: 60px; //serve para definir a altura da header
   padding: 20px; //serve para definir o espaçamento interno da header
   background-color: #6f25f1; //serve para definir a cor de fundo da header
-  justify-content: space-between;
-}
 
-.logo {
-  color: #fff;
+  &__logo {
+    text-decoration: none;
+  }
+
+  &__title {
+    color: #fff;
+  }
 }

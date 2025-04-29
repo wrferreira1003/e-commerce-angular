@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { MockProducts } from '@ecommerce/product-data-acess';
-
+import { Product } from '@ecommerce/product-data-acess';
+import { RecommendedProductsService } from '@ecommerce/product-data-acess';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'lib-home',
   imports: [CommonModule, MatCardModule],
@@ -10,5 +11,9 @@ import { MockProducts } from '@ecommerce/product-data-acess';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  products = MockProducts;
+  products$: Observable<Product[]>;
+
+  constructor(private recommendedProductsService: RecommendedProductsService) {
+    this.products$ = this.recommendedProductsService.getProducts();
+  }
 }

@@ -4,9 +4,11 @@ import { MatCardModule } from '@angular/material/card';
 import { Product } from '@ecommerce/product-data-acess';
 import { RecommendedProductsService } from '@ecommerce/product-data-acess';
 import { Observable } from 'rxjs';
+import { ProductCardComponent } from '@ecommerce/product-ui';
+
 @Component({
   selector: 'lib-home',
-  imports: [CommonModule, MatCardModule],
+  imports: [CommonModule, MatCardModule, ProductCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

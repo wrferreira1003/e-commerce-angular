@@ -4,20 +4,7 @@
 
     <div class="home__product-card-container">
       @for (product of products$ | async; track product.id) {
-      <mat-card class="home__product-card">
-        <img
-          class="home__product-card-image"
-          mat-card-image
-          [src]="product.image"
-          [alt]="product.description"
-        />
-        <mat-card-content class="home__product-card-content">
-          <mat-card-title>{{ product.name }}</mat-card-title>
-          <mat-card-subtitle>
-            {{ product.price | currency : 'BRL' }}
-          </mat-card-subtitle>
-        </mat-card-content>
-      </mat-card>
+      <lib-product-card [product]="product"></lib-product-card>
       } @empty {
       <strong>Não temos produtos recomendados para você no momento</strong>
       }

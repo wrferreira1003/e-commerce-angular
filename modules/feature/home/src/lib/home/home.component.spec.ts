@@ -35,7 +35,7 @@ describe('HomeComponent', () => {
 
   it('should render the products', () => {
     const products: HTMLElement[] =
-      fixture.nativeElement.querySelectorAll('mat-card');
+      fixture.nativeElement.querySelectorAll('lib-product-card');
     expect(products.length).toBe(MockProducts.length);
   });
 });

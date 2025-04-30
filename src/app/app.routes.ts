@@ -11,4 +11,9 @@ export const appRoutes: Route[] = [
     //Lazy loading com o loadComponent
     loadChildren: () => import('@ecommerce/home').then((m) => m.homeRoutes),
   },
+  {
+    path: 'product',
+    loadChildren: () =>
+      import('@ecommerce/product-detail').then((m) => m.productDetailRoutes),
+  },
 ];

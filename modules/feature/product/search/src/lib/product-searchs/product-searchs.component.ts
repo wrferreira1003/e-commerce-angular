@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { ProductSearchService } from '@ecommerce/product-data-acess';
 import { Product } from 'modules/data-acess/product/src/lib/models/product.model';
+import { RouterModule } from '@angular/router';
 import {
   debounceTime,
   distinctUntilChanged,
@@ -25,6 +26,7 @@ import {
     MatFormFieldModule,
     ReactiveFormsModule,
     MatIconModule,
+    RouterModule,
   ],
   templateUrl: './product-searchs.component.html',
   styleUrl: './product-searchs.component.scss',

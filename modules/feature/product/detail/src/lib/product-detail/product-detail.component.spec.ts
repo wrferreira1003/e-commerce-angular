@@ -2,7 +2,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductDetailComponent } from './product-detail.component';
 import { RouterModule, ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
-
+import {
+  MockProducts,
+  ProductSearchService,
+} from '@ecommerce/product-data-acess';
 describe('ProductDetailComponent', () => {
   let component: ProductDetailComponent;
   let fixture: ComponentFixture<ProductDetailComponent>;
@@ -16,6 +19,12 @@ describe('ProductDetailComponent', () => {
           useValue: {
             params: of({ id: '123' }),
             snapshot: { params: { id: '123' } },
+          },
+        },
+        {
+          provide: ProductSearchService,
+          useValue: {
+            getById: () => of(MockProducts[0]),
           },
         },
       ],

@@ -30,7 +30,7 @@ export default [
             },
             {
               sourceTag: 'data-acess', //todas as libs
-              onlyDependOnLibsWithTags: ['data-acess'], //podem depender de todas as libs
+              onlyDependOnLibsWithTags: ['data-acess', 'environments'], //podem depender de todas as libs
             },
           ],
         },

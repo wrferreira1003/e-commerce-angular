@@ -1,1 +1,16 @@
-<pre>{{ product$ | async | json }}</pre>
+<main class="product-detail">
+  <section class="product-detail__section">
+    <ng-container *ngIf="product$ | async as product">
+      <lib-product-card [product]="product"></lib-product-card>
+      <div class="product-detail__section__info">
+        <h2 class="product-detail__section__info__title">
+          {{ product.description }}
+        </h2>
+        <p class="product-detail__section__info__description">
+          {{ product.quantity | quantityDescription }}
+        </p>
+        <button mat-raised-button color="primary">Adicionar ao carrinho</button>
+      </div>
+    </ng-container>
+  </section>
+</main>

@@ -1,10 +1,14 @@
 import { Component, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { getParams } from './get-params';
-import { ProductSearchService } from '@ecommerce/product-data-acess';
+import {
+  ProductSearchService,
+  CartService,
+} from '@ecommerce/product-data-acess';
 import { ProductCardComponent } from '@ecommerce/product-ui';
 import { switchMap } from 'rxjs';
 import { QuantityDescriptionPipe } from '../pipes/quantity-description.pipe';
+
 @Component({
   selector: 'lib-product-detail',
   imports: [CommonModule, ProductCardComponent, QuantityDescriptionPipe],
@@ -13,6 +17,7 @@ import { QuantityDescriptionPipe } from '../pipes/quantity-description.pipe';
 })
 export class ProductDetailComponent {
   productService = inject(ProductSearchService);
+  cartService = inject(CartService);
 
   product$ = getParams().pipe(
     switchMap((id) => this.productService.getById(id))

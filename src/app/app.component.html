@@ -1,7 +1,8 @@
 <lib-header title="Ecommerce">
   <lib-product-searchs></lib-product-searchs>
-  <div class="cart" right>
+  <div right class="cart" right>
     <p>Login</p>
+    <lib-cart [badgeValue]="cartService.quantity()"></lib-cart>
   </div>
 </lib-header>
 <router-outlet></router-outlet>

@@ -19,10 +19,12 @@ node_modules
 
 # IDE - VSCode
 .vscode/*
-!.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# Cursor IDE
+.cursor/
 
 # misc
 /.sass-cache

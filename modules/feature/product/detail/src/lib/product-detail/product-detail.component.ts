@@ -19,6 +19,7 @@ export class ProductDetailComponent {
   productService = inject(ProductSearchService);
   cartService = inject(CartService);
 
+  // Observable - serve para observar o valor do input
   product$ = getParams().pipe(
     switchMap((id) => this.productService.getById(id))
   );

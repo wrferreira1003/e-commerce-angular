@@ -14,7 +14,7 @@ export const authFormRoutes: Route[] = [
           ),
       },
       {
-        path: 'phone',
+        path: 'password',
         loadComponent: () =>
           import(
             './auth-form/auth-form-password/auth-form-password.component'

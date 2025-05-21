@@ -6,7 +6,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
+import { AuthService } from '@ecommerce/auth-data-acess';
+import { Router } from '@angular/router';
 @Component({
   selector: 'lib-auth-form-password',
   imports: [
@@ -21,4 +22,11 @@ import { RouterModule } from '@angular/router';
 })
 export class AuthFormPasswordComponent {
   control = inject(AuthFormComponent).form.controls.password;
+  emailValue = inject(AuthFormComponent).form.controls.email.value;
+  authService = inject(AuthService);
+  router = inject(Router);
+  login() {
+    this.authService.setEmail(this.emailValue);
+    this.router.navigate(['/']);
+  }
 }

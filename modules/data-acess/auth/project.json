@@ -1,0 +1,20 @@
+{
+  "name": "auth-data-acess",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "modules/data-acess/auth/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": ["data-acess"],
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "modules/data-acess/auth/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
